@@ -12,5 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Chart
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  // AnalyticsChartsController.init()
+  });
+
+
+$(document).ready(function(){
+    $('span').tooltip();
+});

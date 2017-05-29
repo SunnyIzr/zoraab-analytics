@@ -1,0 +1,53 @@
+$(window).load(function() {
+  AnalyticsChartsController.setupChart1()
+  AnalyticsChartsController.setupChart2()
+})
+  
+  
+var AnalyticsChartsController = {
+  setupChart1: function() {
+    var ctx = $("#myChart").get(0).getContext("2d");
+    var myNewChart = new Chart(ctx);
+    myNewChart.Line(Chart1Model.dataSet,Chart1Model.optionSet);
+  },
+  setupChart2: function() {
+    var ctx = $("#pieChart").get(0).getContext("2d");
+    var myNewChart = new Chart(ctx);
+    myNewChart.Pie(Chart2Model.dataSet,Chart2Model.optionSet);
+  }
+  
+}
+
+var Chart1Model = {
+  dataSet: {
+    labels : <%=LTV.avg_data.keys[1..-1]%>,
+    datasets : [
+      {
+        fillColor : "rgba(151,187,205,0.5)",
+        strokeColor : "rgba(151,187,205,1)",
+        pointColor : "rgba(151,187,205,1)",
+        pointStrokeColor : "#fff",
+        data : <%=LTV.avg_data.values[1..-1]%>
+      }
+    ]
+  },
+  optionSet: {
+    scaleOverlay : true
+  }
+}
+
+var Chart2Model = {
+  dataSet: [
+      {
+        value: <%=LTV.sum_cum_rev(LTV.avg_data,1)%>,
+        color:"#F38630"
+      },
+      {
+        value : <%=LTV.sum_cum_rev(LTV.avg_data,Customer.all_months.last) - LTV.sum_cum_rev(LTV.avg_data,1)%>,
+        color : "#69D2E7"
+      }  
+    ],
+  optionSet: {
+  }
+}
+

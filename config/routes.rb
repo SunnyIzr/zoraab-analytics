@@ -1,4 +1,9 @@
-Rails.application.routes.draw do
+ZoraabAnalytics::Application.routes.draw do
+  root 'orders#query'
+  
+  post '/avg-total' => 'orders#avg_total'
+  post '/all-totals' => 'orders#all_totals'
+  get '/ltv-data' => 'orders#ltv_chart'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
