@@ -4,8 +4,10 @@ var AnalyticsController = {
     
   },
   refreshAvg: function() {
-    $('#date-range').click(function() {
+    $('#calc').click(function(event) {
+      event.preventDefault();
       AnalyticsModel.calcAvg()
+      AnalyticsChartsModel.getData()
     })
   }  
 }
@@ -32,3 +34,5 @@ var AnalyticsView = {
   }
   
 }
+
+

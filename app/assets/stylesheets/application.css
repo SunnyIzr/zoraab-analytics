@@ -14,3 +14,15 @@
  *= require_self
  *= require flat-ui
  */
+ 
+ .cell {
+  cursor:pointer;
+ }
+ 
+
+ 
+ .tooltip-inner {
+  width: 50px !important;
+ }
+ 
+

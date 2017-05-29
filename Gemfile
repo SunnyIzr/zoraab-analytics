@@ -57,3 +57,5 @@ group :test, :development do
 end
 
 gem 'minitest'
+
+gem 'chart-js-rails'
